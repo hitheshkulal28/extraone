@@ -363,6 +363,34 @@ button,input,select,textarea{ font:inherit; }
   border-color: #25E6D9;
 }
 
+.btn--next {
+  background: linear-gradient(180deg, #BCF9F4 0%, #25E6D9 100%) !important;
+  color: #051226 !important;
+  border: none !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 4px 14px rgba(37, 230, 217, 0.3);
+}
+
+.btn--google {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 999px !important;
+}
+
+.btn--github {
+  background: #1a1a2e !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 999px !important;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
 .stack{ display:flex; gap: 12px; align-items:flex-end; }
 .stack > *{ flex: 1; }
 
@@ -414,6 +442,7 @@ button,input,select,textarea{ font:inherit; }
   background: var(--bg-secondary);
   backdrop-filter: blur(12px);
   box-shadow: var(--shadow);
+  position: relative;
 }
 .auth__logo{
   display:flex;

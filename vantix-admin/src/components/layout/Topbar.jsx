@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { IconLogout } from "./icons";
 
@@ -54,7 +54,7 @@ export default function Topbar({ title, subtitle, onLogout }) {
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>
-          <div className="theme-toggle" onClick={handleThemeToggle}>
+          <div className="theme-toggle" style={{ marginRight: '25px' }} onClick={() => window.toggleTheme()}>
             <div className="toggle-track">
               <div className="toggle-thumb"></div>
             </div>

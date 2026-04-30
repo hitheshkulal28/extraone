@@ -447,6 +447,36 @@
     }
 
     /* ── Hide/Show classes ── */
+    .social-login-sep {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 12px 0 6px;
+      position: relative;
+    }
+    .social-login-sep::before, .social-login-sep::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background: var(--border-color);
+      opacity: 0.5;
+    }
+    .social-login-sep::before { left: 0; }
+    .social-login-sep::after { right: 0; }
+
+    .login-btn--google {
+      background: #ffffff !important;
+      color: #111111 !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+    .login-btn--github {
+      background: #24292e !important;
+      color: #ffffff !important;
+      border: none !important;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -455,7 +485,7 @@
 <body>
   <!-- Theme toggle — fixed top-right, visible on every screen -->
   <div class="theme-toggle" id="theme-toggle" title="Toggle theme"
-       style="position:fixed; top:14px; right:14px; z-index:99999;">
+       style="position:fixed; top:14px; right:32px; z-index:99999;">
     <div class="toggle-track">
       <div class="toggle-thumb"></div>
     </div>
@@ -465,11 +495,23 @@
   <div id="login-view">
     <button class="back-btn" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size: 11px; margin-bottom: 12px; padding: 0; align-self: flex-start;">← Back</button>
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <div class="logo"><img src="icons/vantix-logo.png" alt="Vantix" /></div>
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,.55));">
+          <defs>
+            <linearGradient id="pop_v_grad_1" x1="50" y1="25" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F0FF"/>
+              <stop offset="1" stop-color="#0066FF"/>
+            </linearGradient>
+          </defs>
+          <path d="M22 28C22 28 29 25 38 28L50 78L62 28C71 25 78 28 78 28L50 95L22 28Z" fill="url(#pop_v_grad_1)"/>
+          <path d="M65 38L58 58" stroke="#051226" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="56" cy="64" r="4.5" stroke="#051226" stroke-width="3.5" opacity="0.8"/>
+        </svg>
+      </div>
       <h1 style="font-size:16px;">Vantix Security</h1>
     </div>
     
-    <h2>Employee Login</h2>
+    <h2 id="login-title">Employee Login</h2>
     <div id="login-error"></div>
     
     <div class="input-grp" id="grp-email">
@@ -484,6 +526,16 @@
 
     <button class="login-btn" id="btn-login-next">Next</button>
     <button class="login-btn hidden" id="btn-login-submit">Login</button>
+
+    <div class="social-login-sep">or</div>
+
+    <button id="btn-google-login" class="login-btn login-btn--google">
+      Continue with Google
+    </button>
+
+    <button id="btn-github-login" class="login-btn login-btn--github">
+      Continue with GitHub
+    </button>
   </div>
 
   <!-- Main View -->
@@ -491,7 +543,19 @@
 
   <!-- Header -->
   <div class="header">
-    <div class="logo"><img src="icons/vantix-logo.png" alt="Vantix" /></div>
+    <div class="logo">
+      <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,.55));">
+        <defs>
+          <linearGradient id="pop_v_grad_2" x1="50" y1="25" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#00F0FF"/>
+            <stop offset="1" stop-color="#0066FF"/>
+          </linearGradient>
+        </defs>
+        <path d="M22 28C22 28 29 25 38 28L50 78L62 28C71 25 78 28 78 28L50 95L22 28Z" fill="url(#pop_v_grad_2)"/>
+        <path d="M65 38L58 58" stroke="#051226" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+        <circle cx="56" cy="64" r="4.5" stroke="#051226" stroke-width="3.5" opacity="0.8"/>
+      </svg>
+    </div>
     <div class="header-info">
       <h1>Vantix</h1>
       <p>Sensitive data guard</p>
@@ -581,7 +645,19 @@
   <!-- Entry View -->
   <div id="entry-view" class="hidden" style="display: flex; flex-direction: column; padding: 20px 18px; gap: 16px;">
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <div class="logo"><img src="icons/vantix-logo.png" alt="Vantix" /></div>
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,.55));">
+          <defs>
+            <linearGradient id="pop_v_grad_3" x1="50" y1="25" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F0FF"/>
+              <stop offset="1" stop-color="#0066FF"/>
+            </linearGradient>
+          </defs>
+          <path d="M22 28C22 28 29 25 38 28L50 78L62 28C71 25 78 28 78 28L50 95L22 28Z" fill="url(#pop_v_grad_3)"/>
+          <path d="M65 38L58 58" stroke="#051226" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="56" cy="64" r="4.5" stroke="#051226" stroke-width="3.5" opacity="0.8"/>
+        </svg>
+      </div>
       <h1 style="font-size:16px;">Vantix Security</h1>
     </div>
     
@@ -602,7 +678,19 @@
   <div id="register-view" class="hidden" style="display: flex; flex-direction: column; padding: 20px 18px; gap: 12px;">
     <button class="back-btn" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size: 11px; margin-bottom: 2px; padding: 0; align-self: flex-start;">← Back</button>
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <div class="logo"><img src="icons/vantix-logo.png" alt="Vantix" /></div>
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,.55));">
+          <defs>
+            <linearGradient id="pop_v_grad_4" x1="50" y1="25" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F0FF"/>
+              <stop offset="1" stop-color="#0066FF"/>
+            </linearGradient>
+          </defs>
+          <path d="M22 28C22 28 29 25 38 28L50 78L62 28C71 25 78 28 78 28L50 95L22 28Z" fill="url(#pop_v_grad_4)"/>
+          <path d="M65 38L58 58" stroke="#051226" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="56" cy="64" r="4.5" stroke="#051226" stroke-width="3.5" opacity="0.8"/>
+        </svg>
+      </div>
       <h1 style="font-size:16px;">Create Account</h1>
     </div>
     
@@ -634,7 +722,19 @@
   <!-- Paywall View -->
   <div id="paywall-view" class="hidden" style="display: flex; flex-direction: column; padding: 20px 18px; gap: 16px;">
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <div class="logo"><img src="icons/vantix-logo.png" alt="Vantix" /></div>
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,.55));">
+          <defs>
+            <linearGradient id="pop_v_grad_5" x1="50" y1="25" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F0FF"/>
+              <stop offset="1" stop-color="#0066FF"/>
+            </linearGradient>
+          </defs>
+          <path d="M22 28C22 28 29 25 38 28L50 78L62 28C71 25 78 28 78 28L50 95L22 28Z" fill="url(#pop_v_grad_5)"/>
+          <path d="M65 38L58 58" stroke="#051226" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="56" cy="64" r="4.5" stroke="#051226" stroke-width="3.5" opacity="0.8"/>
+        </svg>
+      </div>
       <h1 style="font-size:16px;">Upgrade Your Plan</h1>
     </div>
     
@@ -672,7 +772,19 @@
   <div id="org-role-view" class="hidden" style="display: flex; flex-direction: column; padding: 20px 18px; gap: 16px;">
     <button class="back-btn" style="background:none; border:none; color:var(--text-muted); cursor:pointer; font-size: 11px; margin-bottom: -4px; padding: 0; align-self: flex-start;">← Back</button>
     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-      <div class="logo"><img src="icons/vantix-logo.png" alt="Vantix" /></div>
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 4px 8px rgba(0,0,0,.55));">
+          <defs>
+            <linearGradient id="pop_v_grad_6" x1="50" y1="25" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#00F0FF"/>
+              <stop offset="1" stop-color="#0066FF"/>
+            </linearGradient>
+          </defs>
+          <path d="M22 28C22 28 29 25 38 28L50 78L62 28C71 25 78 28 78 28L50 95L22 28Z" fill="url(#pop_v_grad_6)"/>
+          <path d="M65 38L58 58" stroke="#051226" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="56" cy="64" r="4.5" stroke="#051226" stroke-width="3.5" opacity="0.8"/>
+        </svg>
+      </div>
       <h1 style="font-size:16px;">Vantix Security</h1>
     </div>
     
@@ -690,6 +802,8 @@
 
   </div>
 
-  <script src="popup.js"></script>
+  <script src="lib/firebase-app.js"></script>
+  <script src="lib/firebase-auth.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
 </html>

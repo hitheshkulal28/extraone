@@ -58,16 +58,7 @@ export default function Sidebar({ onLogout }) {
         <NavItem to="/reports" label="Reports" icon={<IconReport />} />
         <NavItem to="/settings" label="Settings" icon={<IconSettings />} />
       </nav>
-      <div className="sidebar__footer" style={{ marginTop: "auto", padding: "12px 24px", borderTop: "1px solid var(--border-color)" }}>
-        <button 
-          className="btn btn--ghost" 
-          onClick={onLogout} 
-          style={{ width: "100%", justifyContent: "flex-start", gap: 10, color: "var(--text-secondary)" }}
-        >
-          <IconLogout />
-          <span>Sign out</span>
-        </button>
-      </div>
+
     </aside>
   );
 }
